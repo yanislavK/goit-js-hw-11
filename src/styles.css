@@ -1,0 +1,29 @@
+.search-form {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.gallery{
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 23px;
+    row-gap: 48px;
+}
+.photo-card{
+    width: calc((100% - 30px) / 4);
+}
+
+
