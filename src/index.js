@@ -1,5 +1,6 @@
 import { fetchPhotos } from './photo-api.js';
 import SimpleLightbox from 'simplelightbox';
+import Notiflix from 'notiflix';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 let inputValue = null;
@@ -18,6 +19,17 @@ async function onFormSubmit(evt) {
 submitButton.addEventListener('click', onFormSubmit);
 
 function renderPhotoCards(hits) {
+  if (hits.length === 0) {
+    Notiflix.Report.failure(
+      'Error',
+      'Sorry, there are no images matching your search query.',
+      'Please try again.'
+    );
+    return;
+  } else {
+    Notiflix.Report.success(`Hooray! We found ${hits.length} images.`);
+  }
+
   gallery.innerHTML = '';
 
   const lightbox = new SimpleLightbox('.gallery a', {
