@@ -12,7 +12,7 @@ export async function fetchPhotos(inputValue) {
       },
     });
 
-    return response.data.hits; // Return the hits data
+    return response.data.hits;
   } catch (error) {
     console.log(error);
     return []; // Return an empty array in case of error
