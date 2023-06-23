@@ -82,7 +82,7 @@ function createCards(arr) {
         downloads,
       }) => {
         return ` <div class="photo-card">
-   <a class="gallery-link" href="${largeImageURL}">
+   <a class="gallery__link" href="${largeImageURL}">
     <img src="${webformatURL}" alt="${tags}" loading="lazy" width = "300" height="250"/>
     </a>
     <div class="info">
@@ -118,13 +118,13 @@ function createCards(arr) {
 }
 
 function hidingBtnLoadMore(total) {
-  let comparison = page * perPage < total;
-  if (!comparison) {
-    (buttonEl.disabled = true),
-      Notify.failure(
-        "We're sorry, but you've reached the end of search results."
-      );
+  const remainingImages = total - page * perPage;
+  if (remainingImages <= 0) {
+    buttonEl.style.display = 'none';
+    Notify.failure(
+      "We're sorry, but you've reached the end of the search results."
+    );
   } else {
-    return;
+    buttonEl.style.display = 'block';
   }
 }
